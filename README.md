@@ -78,8 +78,14 @@ Nest is [MIT licensed](LICENSE).
 #install
 $ nest new project-name
 
-# ORM
+# typeOrm
 $ npm install --save @nestjs/typeorm typeorm mysql2
+
+#typeOrm CLI
+$ npm i -g ts-node
+
+# 타입스크립트 경로 읽기 위한 패키지
+$ npm i --save-dev tsconfig-paths
 
 # Schema validation
 # config에 추한 환경변수가 유효햐는 체크하는 모듈
