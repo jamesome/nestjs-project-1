@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeormConfigService } from './config/database.config';
+import { DataSource } from 'typeorm';
 
 @Module({
   imports: [
@@ -11,6 +12,10 @@ import { TypeormConfigService } from './config/database.config';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule.forRoot()],
       useClass: TypeormConfigService,
+      dataSourceFactory: async (options) => {
+        const dataSource = await new DataSource(options).initialize();
+        return dataSource;
+      },
     }),
   ],
   controllers: [AppController],
