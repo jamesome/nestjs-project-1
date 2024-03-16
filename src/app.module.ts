@@ -12,10 +12,6 @@ import { DataSource } from 'typeorm';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule.forRoot()],
       useClass: TypeormConfigService,
-      dataSourceFactory: async (options) => {
-        const dataSource = await new DataSource(options).initialize();
-        return dataSource;
-      },
     }),
   ],
   controllers: [AppController],
