@@ -4,15 +4,16 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeormConfigService } from './config/database.config';
-import { DataSource } from 'typeorm';
+import { ItemModule } from './item/item.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule.forRoot()],
       useClass: TypeormConfigService,
     }),
+    ItemModule,
   ],
   controllers: [AppController],
   providers: [AppService],

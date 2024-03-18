@@ -103,6 +103,9 @@ $ npm install --save @nestjs/swagger
 # swagger 보안
 $ npm install express-basic-auth
 
+# env 파일 읽기
+$ npm i dotenv
+
 # test
 $ npm install --save @nestjs/test
 
