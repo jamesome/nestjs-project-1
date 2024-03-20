@@ -18,19 +18,25 @@ export class OrdersService {
     await this.entityManager.save(order);
   }
 
-  findAll() {
-    return `This action returns all orders`;
+  async findAll() {
+    return this.orderRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} order`;
+  async findOne(id: number) {
+    return this.orderRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updateOrderDto: UpdateOrderDto) {
-    return `This action updates a #${id} order`;
+  async update(id: number, updateOrderDto: UpdateOrderDto) {
+    const order = await this.orderRepository.findOneBy({ id });
+    order.order_no = updateOrderDto.order_no;
+    order.member_id = updateOrderDto.member_id;
+    order.item_id = updateOrderDto.item_id;
+    order.status = updateOrderDto.status;
+
+    return await this.orderRepository.save(order);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} order`;
+  async remove(id: number) {
+    return this.orderRepository.delete(id);
   }
 }
