@@ -15,7 +15,13 @@ export class MiniSellmate1710843080498 implements MigrationInterface {
             name: 'id',
             type: 'integer',
             isPrimary: true,
+            isGenerated: true,
             generationStrategy: 'increment',
+            isNullable: false,
+          },
+          {
+            name: 'order_no',
+            type: 'varchar(50)',
             isNullable: false,
           },
           {
@@ -36,11 +42,13 @@ export class MiniSellmate1710843080498 implements MigrationInterface {
           {
             name: 'created_at',
             type: 'datetime',
+            default: 'now()',
             isNullable: false,
           },
           {
             name: 'updated_at',
             type: 'datetime',
+            default: 'now()',
             isNullable: true,
           },
           {
@@ -60,6 +68,7 @@ export class MiniSellmate1710843080498 implements MigrationInterface {
             name: 'id',
             type: 'integer',
             isPrimary: true,
+            isGenerated: true,
             generationStrategy: 'increment',
             isNullable: false,
           },
@@ -85,6 +94,7 @@ export class MiniSellmate1710843080498 implements MigrationInterface {
             name: 'id',
             type: 'integer',
             isPrimary: true,
+            isGenerated: true,
             generationStrategy: 'increment',
             isNullable: false,
           },
@@ -110,6 +120,7 @@ export class MiniSellmate1710843080498 implements MigrationInterface {
             name: 'id',
             type: 'integer',
             isPrimary: true,
+            isGenerated: true,
             generationStrategy: 'increment',
             isNullable: false,
           },
