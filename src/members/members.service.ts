@@ -15,23 +15,26 @@ export class MembersService {
 
   async create(createMemberDto: CreateMemberDto) {
     const member = new Members(createMemberDto);
-    member.id = 1;
     await this.entityManager.save(member);
   }
 
-  findAll() {
-    return `This action returns all members`;
+  async findAll() {
+    return this.memberRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} member`;
+  async findOne(id: number) {
+    return this.memberRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updateMemberDto: UpdateMemberDto) {
-    return `This action updates a #${id} member`;
+  async update(id: number, updateMemberDto: UpdateMemberDto) {
+    const member = await this.memberRepository.findOneBy({ id });
+    member.name = updateMemberDto.name;
+    member.address = updateMemberDto.address;
+
+    await this.memberRepository.save(member);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} member`;
+  async remove(id: number) {
+    return this.memberRepository.delete(id);
   }
 }

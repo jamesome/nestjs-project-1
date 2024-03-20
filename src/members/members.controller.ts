@@ -21,22 +21,25 @@ export class MembersController {
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.membersService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: string) {
     return this.membersService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMemberDto: UpdateMemberDto) {
+  async update(
+    @Param('id') id: string,
+    @Body() updateMemberDto: UpdateMemberDto,
+  ) {
     return this.membersService.update(+id, updateMemberDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  async remove(@Param('id') id: string) {
     return this.membersService.remove(+id);
   }
 }
