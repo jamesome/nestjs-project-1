@@ -1,7 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { AbstractEntity } from 'src/database/abstract.entity';
+import { Orders } from 'src/orders/entities/orders.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Members {
+export class Members extends AbstractEntity<Members> {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
@@ -11,7 +13,6 @@ export class Members {
   @Column()
   address: string;
 
-  constructor(members: Partial<Members>) {
-    Object.assign(this, members);
-  }
+  @OneToMany(() => Orders, (orders) => orders.member, { cascade: true })
+  orders: Orders[];
 }

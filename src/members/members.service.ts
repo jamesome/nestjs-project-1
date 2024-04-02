@@ -23,7 +23,10 @@ export class MembersService {
   }
 
   async findOne(id: number) {
-    return this.memberRepository.findOne({ where: { id } });
+    return this.memberRepository.findOne({
+      where: { id },
+      relations: { orders: true },
+    });
   }
 
   async update(id: number, updateMemberDto: UpdateMemberDto) {

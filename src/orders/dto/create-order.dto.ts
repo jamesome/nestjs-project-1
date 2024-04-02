@@ -1,7 +1,7 @@
 export class CreateOrderDto {
-  order_no: string;
-  member_id: number;
-  item_id: number;
+  orderNo: string;
+  memberId: number;
+  itemId: number;
   status: number;
   created_at: Date;
   updated_at: Date;
