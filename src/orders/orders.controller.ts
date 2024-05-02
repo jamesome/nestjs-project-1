@@ -21,7 +21,7 @@ export class OrdersController {
   }
 
   @Get()
-  findAll() {
+  findAll(): object {
     return this.ordersService.findAll();
   }
 

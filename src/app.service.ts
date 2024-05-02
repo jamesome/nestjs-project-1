@@ -3,11 +3,11 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getHello(): string {
-    return 'Hello World!';
+    return 'Hello World!11';
   }
 
   getId(id): string {
-    return `id 받기 => ${id}`;
+    return `id 받기111 => ${id}`;
   }
 
   getBye(request): string {

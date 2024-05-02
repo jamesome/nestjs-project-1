@@ -6,18 +6,18 @@ import { Request } from 'express';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+  // @Get()
+  // getHello(): string {
+  //   return this.appService.getHello();
+  // }
 
-  @Get(':id')
-  getId(@Param() id: number): string {
-    return this.appService.getId(id['id']);
-  }
+  // @Get(':id')
+  // getId(@Param() id: number): string {
+  //   return this.appService.getId(id['id']);
+  // }
 
-  @Get('/req')
-  getBye(@Req() request: Request): string {
-    return this.appService.getBye(request);
-  }
+  // @Get('/req')
+  // getBye(@Req() request: Request): string {
+  //   return this.appService.getBye(request);
+  // }
 }
